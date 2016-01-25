@@ -1,0 +1,17 @@
+<div class="col-md-10">
+
+    <form name="userList">
+        <label for="userselect">Select a User: </label>
+        <select ng-options="user.name for user in users" ng-model="selectedUser" id="userselect"></select>
+        <button ng-click="getAddresses()" class="btn">Change</button>
+    </form>
+
+    <div class="well" ng-repeat="address in addresses">
+        <h3>{{address.address_type}}</h3>
+        <p>
+            {{address.address_street}}<br />
+            {{address.address_city}}, {{address.address_state}} {{address.address_zip}}
+        </p>
+
+    </div>
+</div>

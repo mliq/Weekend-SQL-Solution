@@ -1,0 +1,31 @@
+<div class="col-md-10">
+
+    <form name="userList">
+        <label for="userselect">Select a User: </label>
+        <select ng-options="user.name for user in users" ng-model="selectedUser" id="userselect"></select>
+        <label for="startDate">Start Date: </label>
+        <input type="date" id="startDate" ng-model="selectedUser.startDate" placeholder="01-01-2006"/>
+        <label for="endDate">Start Date: </label>
+        <input type="date" id="endDate" ng-model="selectedUser.endDate" placeholder="01-01-2016"/>
+        <button ng-click="getOrders()" class="btn">Change</button>
+    </form>
+
+    <div ng-show="orders.length > 0">
+    <table class="table table-striped">
+        <tr>
+            <th>Order Date</th>
+            <th>Ship Address</th>
+            <th>Amount</th>
+        </tr>
+        <tr ng-repeat="order in orders">
+            <td>{{order.order_date}}</td>
+            <td>{{order.address_type}}</td>
+            <td>{{order.amount | currency: '$'}}</td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+            <td>{{ordersTotal | currency: '$'}}</td>
+        </tr>
+    </table>
+    </div>
+</div>
